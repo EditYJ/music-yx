@@ -1,0 +1,9 @@
+/* pages/playlist/playlist.wxss */
+.swiperImg{
+  width: 100%;
+  height: 100%;
+}
+.playlist{
+  display: flex;
+  flex-wrap: wrap;
+}

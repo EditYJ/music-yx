@@ -1,0 +1,15 @@
+<!--pages/playlist/playlist.wxml-->
+<swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+	<block wx:for="{{swiperImg}}" wx:key="url">
+		<!-- mode="scaleToFill\\aspectFit\\" -->
+		<swiper-item>
+			<image src="{{item.url}}" mode="widthFix" class="swiperImg"></image>
+		</swiper-item>
+	</block>
+</swiper>
+
+<view class="playlist">
+	<block wx:for="{{playlist}}" wx:key="_id">
+		<y-playlist listItem="{{item}}"></y-playlist>
+	</block>
+</view>

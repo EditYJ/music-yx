@@ -18,7 +18,7 @@ const collec = db.collection('playlist')
 // axios
 const axios = require('axios')
 // 歌单信息
-const URL = 'http://musicapi.xiecheng.live/personalized'
+const URL = 'http://www.edityj.top:3000/personalized'
 
 // 限制一次数据取出数量
 const MAX_LIMIT = 100

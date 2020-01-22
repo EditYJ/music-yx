@@ -1,4 +1,6 @@
 // pages/playlist/playlist.js
+const PAGE_SIZE = 15
+
 Page({
 
   /**
@@ -22,7 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getPlaylist()
   },
 
   /**
@@ -57,14 +59,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      playlist: []
+    })
+    this._getPlaylist()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this._getPlaylist()
   },
 
   /**
@@ -72,5 +77,28 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 获取歌单列表
+  _getPlaylist() {
+    wx.showLoading({
+      title: '请稍后',
+    })
+    wx.cloud.callFunction({
+      name: 'music',
+      data: {
+        start: this.data.playlist.length,
+        count: PAGE_SIZE
+      }
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        playlist: [...this.data.playlist, ...res.result.data]
+      })
+      wx.stopPullDownRefresh({
+        complete: (res) => {console.log("下拉刷新完成")},
+      })
+      wx.hideLoading()
+    })
   }
 })

@@ -8,6 +8,30 @@ Page({
 
   },
 
+  // 测试得到音乐信息
+  getMusicInfo() {
+    wx.cloud.callFunction({
+      name: "routerTest",
+      data: {
+        $url: 'music'
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  },
+
+  // 测试得到电影信息
+  getMovieInfo() {
+    wx.cloud.callFunction({
+      name: "routerTest",
+      data: {
+        $url: 'movie'
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

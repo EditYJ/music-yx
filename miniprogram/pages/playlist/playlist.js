@@ -88,7 +88,8 @@ Page({
       name: 'music',
       data: {
         start: this.data.playlist.length,
-        count: PAGE_SIZE
+        count: PAGE_SIZE,
+        $url: 'playlist'
       }
     }).then(res => {
       console.log(res)
@@ -96,7 +97,7 @@ Page({
         playlist: [...this.data.playlist, ...res.result.data]
       })
       wx.stopPullDownRefresh({
-        complete: (res) => {console.log("下拉刷新完成")},
+        complete: (res) => {},
       })
       wx.hideLoading()
     })

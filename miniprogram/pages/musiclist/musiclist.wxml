@@ -1,0 +1,34 @@
+<!--pages/musiclist/musiclist.wxml-->
+<view class="background-container" style="background: url({{coverImgUrl}}) no-repeat top/cover"></view>
+<view class="background-mask"></view>
+<view class="container">
+	<view class="musiclistInfo">
+		<view class="musiclistInfo-top">
+			<view class="musiclistInfo-topleft">
+				<image src="{{coverImgUrl}}"></image>
+			</view>
+			<view class="musiclistInfo-topright">
+				<view class="name">{{name}}
+					<view class="creator">
+						<image src="{{creator.avatarUrl}}"></image>
+						<view class="nickname">{{creator.nickname}}</view>
+					</view>
+				</view>
+				<view class="description">{{description}}</view>
+			</view>
+		</view>
+		<view class="musiclistInfo-bottom">
+			<view class="item">
+				<view class="iconfont icon-pinglun1 icon"></view>
+				<view class="text">{{commentCount}}</view>
+			</view>
+			<view class="item">
+				<view class="iconfont icon-fenxiang1 icon"></view>
+				<view class="text">{{shareCount}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="musiclist">
+		<y-musicSheet listData="{{tracks}}" collectNum="{{subscribedCount}}"></y-musicSheet>
+	</view>
+</view>

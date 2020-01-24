@@ -1,0 +1,57 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1579843583076'); /* IE9 */
+  src: url('iconfont.eot?t=1579843583076#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('iconfont.woff?t=1579843583076') format('woff'),
+  url('iconfont.ttf?t=1579843583076') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1579843583076#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bofang:before {
+  content: "\e602";
+}
+
+.icon-bofang1:before {
+  content: "\e613";
+}
+
+.icon-music:before {
+  content: "\e642";
+}
+
+.icon-gengduo:before {
+  content: "\e600";
+}
+
+.icon-talk:before {
+  content: "\e627";
+}
+
+.icon-user:before {
+  content: "\e611";
+}
+
+.icon-fenxiang1:before {
+  content: "\e628";
+}
+
+.icon-pinglun1:before {
+  content: "\e601";
+}
+
+.icon-xtqb_class_novideo:before {
+  content: "\e65a";
+}
+
+.icon-gengduo1:before {
+  content: "\e609";
+}
+

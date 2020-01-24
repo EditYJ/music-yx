@@ -1,4 +1,6 @@
 /* components/playlist/playlist.wxss */
+@import "../../assets/icon/iconfont.wxss";
+
 .playlist-container {
   position: relative;
   width: 222rpx;
@@ -11,15 +13,24 @@
   border-radius: 15rpx;
 }
 
+.playlist-icon{
+  font-size: 23rpx;
+  margin-right: 4rpx;
+}
+
 .playlist-playcount {
-  font-size: 24rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 23rpx;
   color: #fff;
   text-shadow: 1px 0 0 rgba(0, 0, 0, 0.5);
   position: absolute;
   right: 10rpx;
   top: 4rpx;
-  padding-left: 26rpx;
 }
+
 
 .playlist-name {
   font-size: 26rpx;

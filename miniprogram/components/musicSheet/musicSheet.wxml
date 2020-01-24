@@ -1,0 +1,32 @@
+<!--components/musicSheet/musicSheet.wxml-->
+<view class="playall">
+	<view class="playall-left">
+		<view class="iconfont icon-bofang icon"></view>
+		<view class="text">播放全部</view>
+		<view class="description">(共{{listData.length}}首)</view>
+	</view>
+	<view class="playall-right">
+		<view class="text">+ 收藏({{collectNum}})</view>
+	</view>
+</view>
+<view class="playlist">
+	<block wx:for="{{listData}}" wx:key="id">
+		<view class="playlist-item">
+			<view class="playlist-itemleft">
+				<view class="index">{{index+1}}</view>
+				<view class="conetent">
+					<view class="title">{{item.name}}</view>
+					<view class="descirption">
+						<block wx:for="{{item.ar}}" wx:key="id" wx:for-item="author" wx:for-index="arIndex">
+							{{author.name}}{{arIndex===item.ar.length-1 ? "-" : "/"}}{{item.name}}
+						</block>
+					</view>
+				</view>
+			</view>
+			<view class="playlist-itemright">
+				<view class="iconfont icon-gengduo1 icon"></view>
+				<view wx:if="{{item.mv!==0}}" class="iconfont icon-xtqb_class_novideo icon"></view>
+			</view>
+		</view>
+	</block>
+</view>

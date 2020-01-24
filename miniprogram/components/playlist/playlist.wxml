@@ -1,7 +1,10 @@
 <!--components/playlist/playlist.wxml-->
-<view class="playlist-container">
+<view class="playlist-container" bindtap="goToMusicList">
 	<image src="{{listItem.picUrl}}" class="playlist-image"></image>
-	<text class="playlist-playcount">{{playCount}}</text>
+	<view class="playlist-playcount">
+		<view class="iconfont icon-bofang1 playlist-icon"></view>
+		<view>{{playCount}}</view>
+	</view>
 	<view class="playlist-name">{{listItem.name}}</view>
 	<!-- <button bindtap="getCount">你好</button> -->
 </view>

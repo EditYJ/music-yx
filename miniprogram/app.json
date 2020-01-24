@@ -3,6 +3,7 @@
     "pages/playlist/playlist",
     "pages/blog/blog",
     "pages/profile/profile",
+    "pages/musiclist/musiclist",
     "pages/demo/demo"
   ],
   "window": {
@@ -10,7 +11,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "音乐",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
   },
   "tabBar": {
     "color": "#dbdbdb",

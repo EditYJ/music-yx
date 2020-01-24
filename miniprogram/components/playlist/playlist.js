@@ -34,5 +34,10 @@ Component({
    */
   methods: {
     getCount,
+    goToMusicList() {
+      wx.navigateTo({
+        url: `/pages/musiclist/musiclist?playlistId=${this.properties.listItem.id}`,
+      })
+    }
   }
 })

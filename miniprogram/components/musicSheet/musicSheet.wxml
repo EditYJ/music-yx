@@ -12,8 +12,11 @@
 <view class="playlist">
 	<block wx:for="{{listData}}" wx:key="id">
 		<view class="playlist-item">
-			<view class="playlist-itemleft">
-				<view class="index">{{index+1}}</view>
+			<view class="playlist-itemleft" bindtap="handleClickMusicContent" data-music-id="{{item.id}}">
+				<view class="index">
+					<text wx:if="{{item.id === currectMusicId}}" class="iconfont icon-laba icon"></text>
+					<text wx:if="{{item.id !== currectMusicId}}">{{index+1}}</text>
+				</view>
 				<view class="conetent">
 					<view class="title">{{item.name}}</view>
 					<view class="descirption">

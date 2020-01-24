@@ -70,6 +70,11 @@
   color: #909399;
 }
 
+.playlist-itemleft .index .icon {
+  font-size: 40rpx;
+  color: red;
+}
+
 .playlist-itemleft .descirption {
   color: #909399;
   font-size: 22rpx;
@@ -79,7 +84,7 @@
   overflow: hidden;
 }
 
-.playlist-itemleft .title{
+.playlist-itemleft .title {
   font-size: 30rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -96,7 +101,7 @@
   margin-left: 15rpx;
 }
 
-.playlist-itemright .icon{
+.playlist-itemright .icon {
   font-size: 50rpx;
   color: #C0C4CC
 }

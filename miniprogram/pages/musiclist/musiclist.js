@@ -18,6 +18,10 @@ Page({
     tracks:[]
   },
 
+  setMusicList(musicList){
+    wx.setStorageSync('currentMusicList', musicList)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,6 +38,7 @@ Page({
       }
     }).then(val => {
       console.log('获取歌单详细信息: ', val)
+      const musicList = val.result.playlist
       const {
         coverImgUrl,
         name,
@@ -43,7 +48,7 @@ Page({
         shareCount,
         subscribedCount,
         tracks
-      } = val.result.playlist
+      } = musicList
       this.setData({
         coverImgUrl,
         name,
@@ -54,6 +59,7 @@ Page({
         tracks,
         subscribedCount: getCount(subscribedCount)
       })
+      this.setMusicList(musicList.tracks)
       wx.hideLoading()
     })
   },

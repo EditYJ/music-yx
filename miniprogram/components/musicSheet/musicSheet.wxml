@@ -21,7 +21,7 @@
 					<view class="title">{{item.name}}</view>
 					<view class="descirption">
 						<block wx:for="{{item.ar}}" wx:key="id" wx:for-item="author" wx:for-index="arIndex">
-							{{author.name}}{{arIndex===item.ar.length-1 ? "-" : "/"}}{{item.name}}
+							{{author.name}}{{arIndex===item.ar.length-1 ? " - " : "/"}}{{item.name}}
 						</block>
 					</view>
 				</view>

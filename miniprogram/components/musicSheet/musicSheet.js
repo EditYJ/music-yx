@@ -26,8 +26,18 @@ Component({
    */
   methods: {
     handleClickMusicContent(event) {
+      const {
+        musicId,
+        musicAl
+      } = event.currentTarget.dataset
+      console.log("musicAl", musicAl)
+
       this.setData({
-        currectMusicId: event.currentTarget.dataset.musicId
+        currectMusicId: musicId
+      })
+      const picUrl = encodeURIComponent(musicAl.picUrl)
+      wx.navigateTo({
+        url: `/pages/player/player?id=${musicId}&name=${musicAl.name}&picUrl=${picUrl}`,
       })
     }
   },

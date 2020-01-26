@@ -5,13 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    picUrl: "",
+    name: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("接收参数: ", options)
+    const {
+      id,
+      name,
+      picUrl
+    } = options
+    this.setData({
+      name,
+      picUrl: decodeURIComponent(picUrl),
+    })
+    wx.setNavigationBarTitle({
+      title: name
+    })
 
   },
 

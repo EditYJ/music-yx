@@ -16,17 +16,19 @@ Page({
     console.log("接收参数: ", options)
     const {
       id,
-      name,
-      picUrl
+      index,
     } = options
+
+    const currentList = wx.getStorageSync('currentMusicList')
+    const {name, al} = currentList[index]
+    
     this.setData({
       name,
-      picUrl: decodeURIComponent(picUrl),
+      picUrl: al.picUrl,
     })
     wx.setNavigationBarTitle({
       title: name
     })
-
   },
 
   /**

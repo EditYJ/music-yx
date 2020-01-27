@@ -1,5 +1,8 @@
 <!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
-<image src="{{picUrl}}"></image>
-
-
+<view class="background-container" style="background: url({{picUrl}}) no-repeat top/cover"></view>
+<view class="background-mask"></view>
+<view class="container">
+	<view class="cdPlayer">
+		<image class="cdPlayer" src="{{picUrl}}"></image>
+	</view>
+</view>

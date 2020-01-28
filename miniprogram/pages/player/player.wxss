@@ -59,6 +59,63 @@ page {
   height: 368rpx;
   border-radius: 50%;
   position: absolute;
-  left: 50%;
-  top: -28rpx;
+  left: 115rpx;
+  top: 115rpx;
+  transform: rotate(100deg);
+}
+
+.container .option {
+  position: absolute;
+  width: 100%;
+  padding: 30rpx 10rpx;
+  bottom: 0;
+}
+
+.play-more {
+  padding: 0rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  color: rgb(200, 200, 200);
+}
+
+.play-more .iconfont {
+  font-size: 55rpx;
+}
+
+.play-progress {
+  margin: 30rpx 0rpx;
+}
+
+.play-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  padding: 0rpx 50rpx;
+  color: rgb(220, 220, 220);
+}
+
+.play-option .icon--lbxh {
+  font-size: 53rpx;
+}
+
+.play-option .icon-xiayishou {
+  font-size: 55rpx;
+}
+
+.play-option .icon-bofang3 {
+  font-size: 120rpx;
+  color: #fff;
+}
+
+.play-option .icon-shangyishou {
+  font-size: 55rpx;
+}
+
+.play-option .icon-juxing {
+  font-size: 55rpx;
 }

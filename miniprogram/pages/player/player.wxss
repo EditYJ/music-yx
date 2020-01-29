@@ -67,7 +67,7 @@ page {
 .container .option {
   position: absolute;
   width: 100%;
-  padding: 30rpx 10rpx;
+  padding: 30rpx 0rpx;
   bottom: 0;
 }
 
@@ -107,7 +107,7 @@ page {
   font-size: 55rpx;
 }
 
-.play-option .icon-bofang3 {
+.play-option .play-icon {
   font-size: 120rpx;
   color: #fff;
 }

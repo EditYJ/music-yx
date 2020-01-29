@@ -13,12 +13,12 @@
 			<view class="iconfont icon-pinglun1"></view>
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
-		<view class="play-progress">进度条</view>
+		<view class="play-progress"></view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>
-			<view class="iconfont icon-shangyishou"></view>
-			<view class="iconfont icon-bofang3"></view>
-			<view class="iconfont icon-xiayishou"></view>
+			<view class="iconfont icon-shangyishou" bindtap="playPre"></view>
+			<view class="iconfont {{isPlay ? 'icon-bofang3' : 'icon-zanting'}} play-icon" bindtap="changePlayState"></view>
+			<view class="iconfont icon-xiayishou" bindtap="playNext"></view>
 			<view class="iconfont icon-juxing"></view>
 		</view>
 	</view>

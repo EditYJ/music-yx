@@ -2,8 +2,8 @@
 <view class="background-container" style="background: url({{picUrl}}) no-repeat top/cover"></view>
 <view class="background-mask"></view>
 <view class="container">
-	<view class="cdPlayer">
-		<image class="cdPlayer" src="{{picUrl}}"></image>
+	<view class="cdPlayer {{isPlay ? 'play' : ''}}">
+		<image class="rotation {{isPlay? '': 'rotation-pause'}}" src="{{picUrl}}"></image>
 	</view>
 
 	<view class="option">

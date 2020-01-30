@@ -71,8 +71,8 @@ Page({
         backgroundAudioManager.src = url // 设置歌曲URL
         backgroundAudioManager.title = name // 设置歌曲名
         backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+        wx.hideLoading()
       }
-      wx.hideLoading()
     })
   },
 

@@ -42,6 +42,7 @@ page {
   transform: translate(-50%, 140rpx);
 }
 
+
 .container .cdPlayer::after {
   content: '';
   width: 192rpx;
@@ -50,8 +51,13 @@ page {
   top: -150rpx;
   left: 266rpx;
   background: url('https://s3.music.126.net/m/s/img/needle.png?702cf6d95f29e2e594f53a3caab50e12') no-repeat center/contain;
-  transform: rotate(-15deg);
+  transform: rotate(-20deg);
   transform-origin: 24rpx 10rpx;
+  transition: transform .5s ease;
+}
+
+.play.cdPlayer::after{
+  transform: rotate(0deg);
 }
 
 .container .cdPlayer image {
@@ -63,6 +69,28 @@ page {
   top: 115rpx;
   transform: rotate(100deg);
 }
+
+.rotation {
+  animation: rotation 12s linear infinite;
+  -moz-animation: rotation 12s linear infinite;
+  -webkit-animation: rotation 12s linear infinite;
+  -o-animation: rotation 12s linear infinite;
+}
+
+.rotation-pause {
+  animation-play-state: paused;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .container .option {
   position: absolute;

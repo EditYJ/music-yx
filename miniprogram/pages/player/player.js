@@ -53,11 +53,24 @@ Page({
         url
       } = val.result.data[0]
 
-      // 获取成功后传输数据到音频管理器播放相应的音乐
-      backgroundAudioManager.src = url // 设置歌曲URL
-      backgroundAudioManager.title = name // 设置歌曲名
-      backgroundAudioManager.coverImgUrl = al.picUrl // 封面
-
+      if (!url) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '此为网易云会员特权音乐，无法播放！',
+          icon: "none",
+          duration: 5000,
+          complete: () => {
+            setTimeout(() => {
+              wx.navigateBack()
+            }, 5000)
+          }
+        })
+      } else {
+        // 获取成功后传输数据到音频管理器播放相应的音乐
+        backgroundAudioManager.src = url // 设置歌曲URL
+        backgroundAudioManager.title = name // 设置歌曲名
+        backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+      }
       wx.hideLoading()
     })
   },
@@ -120,7 +133,7 @@ Page({
       })
     })
 
-    backgroundAudioManager.onStop(()=>{
+    backgroundAudioManager.onStop(() => {
       console.log("音乐停止啦")
       this.setData({
         isPlay: false

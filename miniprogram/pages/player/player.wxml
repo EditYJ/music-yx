@@ -2,10 +2,12 @@
 <view class="background-container" style="background: url({{picUrl}}) no-repeat top/cover"></view>
 <view class="background-mask"></view>
 <view class="container">
+	<!-- 唱片部分 -->
 	<view class="cdPlayer {{isPlay ? 'play' : ''}}">
 		<image class="rotation {{isPlay? '': 'rotation-pause'}}" src="{{picUrl}}"></image>
 	</view>
 
+	<!-- 操作项 -->
 	<view class="option">
 		<view class="play-more">
 			<view class="iconfont icon-xin1"></view>
@@ -13,7 +15,9 @@
 			<view class="iconfont icon-pinglun1"></view>
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
-		<view class="play-progress"></view>
+		<view class="play-progress">
+			<progressBar />
+		</view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>
 			<view class="iconfont icon-shangyishou" bindtap="playPre"></view>

@@ -1,0 +1,2 @@
+<!--components/progressBar/progressBar.wxml-->
+<text style="color: #fff">=======假装有进度条=======</text>

@@ -1,2 +1,11 @@
 <!--components/progressBar/progressBar.wxml-->
-<text style="color: #fff">=======假装有进度条=======</text>
+<view class="container">
+	<text class="time">{{currectTime}}</text>
+	<view class="control">
+		<movable-area class="movable-area">
+			<movable-view class="movable-view" hover-class="movable-view-hover" direction="horizontal" damping="1000" x="{{moveDis}}" />
+		</movable-area>
+		<progress stroke-width="2" backgroundColor="#969696" activeColor="#fff" percent="{{process}}" />
+	</view>
+	<text class="time">{{totalTime}}</text>
+</view>

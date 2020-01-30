@@ -1,6 +1,17 @@
 <!--pages/player/player.wxml-->
 <view class="background-container" style="background: url({{picUrl}}) no-repeat top/cover"></view>
 <view class="background-mask"></view>
+<view class="title-bar">
+	<view class="iconfont icon-flow" bindtap="backPrePage" />
+	<view class="title">
+		<view class="name">{{name}}</view>
+		<view class="editor">
+			<block wx:for="{{ar}}" wx:key="id">
+				{{item.name}}{{index===ar.length-1 ? " " : "/"}}
+			</block>
+		</view>
+	</view>
+</view>
 <view class="container">
 	<!-- 唱片部分 -->
 	<view class="cdPlayer {{isPlay ? 'play' : ''}}">

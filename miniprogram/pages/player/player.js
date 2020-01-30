@@ -14,7 +14,12 @@ Page({
   data: {
     isPlay: false,
     picUrl: "",
-    name: ""
+    name: "",
+    ar: []
+  },
+
+  backPrePage() {
+    wx.navigateBack()
   },
 
   // 获取音乐详细信息，并播放音乐
@@ -26,14 +31,16 @@ Page({
 
     const {
       name,
-      al
+      al,
+      ar
     } = currectPlayList[currectPlayIndex]
 
     // 更改对应界面数据
     this.setData({
       name,
+      ar,
       picUrl: al.picUrl,
-      isPlay: !backgroundAudioManager.paused
+      isPlay: !backgroundAudioManager.paused,
     })
 
     // 设置标题栏

@@ -21,3 +21,18 @@ export const listUniq = (list, key) => {
     return item;
   }, []);
 }
+
+// 根据秒数输出分钟和秒
+export const transformSec = (seconds) => {
+  return {
+    min: Math.floor(seconds / 60),
+    sec: Math.floor(seconds % 60)
+  }
+}
+
+// 补零操作
+// 2 ==> "02"
+// 21 ==> "21"
+export const addZero = (number) => {
+  return number < 10 ? `0${number}` : `${number}`
+}

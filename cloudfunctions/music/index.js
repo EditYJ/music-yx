@@ -13,8 +13,7 @@ cloud.init({
 const db = cloud.database()
 const collec = db.collection('playlist')
 
-const LIST_DETAIL_URL = 'http://www.edityj.top:3000/playlist/detail'
-const MUSIC_DETAIL_URL = 'http://www.edityj.top:3000/song/url'
+const URL = 'http://www.edityj.top:3000'
 // 云函数入口函数
 exports.main = async (event, context) => {
   const app = new TcbRouter({
@@ -33,16 +32,24 @@ exports.main = async (event, context) => {
   // 根据歌单id获取对应歌单下的所有歌曲
   app.router('playlist/detail', async (ctx, next) => {
     ctx.body = await axios
-      .get(`${LIST_DETAIL_URL}?id=${event.playlistId}`)
+      .get(`${URL}/playlist/detail?id=${event.playlistId}`)
       .then(val => val.data)
   })
 
   // 根据歌曲id获取歌曲详细信息
   app.router('music/detail', async (ctx, next) => {
     ctx.body = await axios
-      .get(`${MUSIC_DETAIL_URL}?id=${event.musicId}`)
+      .get(`${URL}/song/url?id=${event.musicId}`)
       .then(val => val.data)
   })
+
+  // 根据歌曲id获取歌曲详细信息
+  app.router('music/lyric', async (ctx, next) => {
+    ctx.body = await axios
+      .get(`${URL}/lyric?id=${event.musicId}`)
+      .then(val => val.data)
+  })
+
 
   return app.serve()
 }

@@ -1,2 +1,5 @@
 <!--components/lyric/lyric.wxml-->
-<text>components/lyric/lyric.wxml</text>
+<scroll-view hidden="{{idHiddenLyric}}" bindtap="changeLyricState">
+	<!-- {{lyric}} -->
+  暂无歌词
+</scroll-view>

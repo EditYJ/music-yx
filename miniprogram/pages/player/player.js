@@ -15,11 +15,18 @@ Page({
     isPlay: false,
     picUrl: "",
     name: "",
-    ar: []
+    ar: [],
+    lyric: "",
+    idHiddenLyric: true
   },
 
   backPrePage() {
     wx.navigateBack()
+  },
+  changeLyricState() {
+    this.setData({
+      idHiddenLyric: !this.data.idHiddenLyric
+    })
   },
 
   // 获取音乐详细信息，并播放音乐
@@ -78,8 +85,29 @@ Page({
         backgroundAudioManager.src = url // 设置歌曲URL
         backgroundAudioManager.title = name // 设置歌曲名
         backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+        this.getLyric(musicId)
         wx.hideLoading()
       }
+    })
+  },
+
+  // 获取歌词
+  getLyric(musicId) {
+    wx.cloud.callFunction({
+      name: 'music',
+      data: {
+        musicId,
+        $url: 'music/lyric'
+      }
+    }).then(val => {
+      // console.log('获取歌词成功: ', val)
+      let lyric = "暂无歌词"
+      if (val.result.lrc.lyric) {
+        lyric = val.result.lrc.lyric
+      }
+      this.setData({
+        lyric
+      })
     })
   },
 
@@ -147,7 +175,6 @@ Page({
 
     // 播放当前id的音乐
     this.loadingMusicDetail(id)
-
   },
 
   /**

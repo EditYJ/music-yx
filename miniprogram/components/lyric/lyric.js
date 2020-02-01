@@ -4,7 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    idHiddenLyric: Boolean,
+    lyric: String
+  },
 
+  observers: {
+    lyric(lrc) {
+      console.log(lrc)
+    }
   },
 
   /**
@@ -18,6 +25,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    changeLyricState() {
+      this.triggerEvent('changeLyricState')
+    }
   }
 })

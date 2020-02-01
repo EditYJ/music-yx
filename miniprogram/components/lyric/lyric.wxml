@@ -1,8 +1,10 @@
 <!--components/lyric/lyric.wxml-->
-<scroll-view hidden="{{idHiddenLyric}}" bindtap="changeLyricState">
-	<block wx:for="{{lrc}}" wx:key="item">
-		<view>
-			{{item.text}}
-		</view>
-	</block>
+<scroll-view hidden="{{idHiddenLyric}}" bindtap="changeLyricState" class="lrcScroll">
+	<view class="lrcContent">
+		<block wx:for="{{lrc}}" wx:key="item">
+			<view class="lrc">
+				{{item.text}}
+			</view>
+		</block>
+	</view>
 </scroll-view>

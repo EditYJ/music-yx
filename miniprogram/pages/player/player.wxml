@@ -14,9 +14,7 @@
 </view>
 <view class="container">
 	<!-- 歌词 -->
-	<view>
-		<lyric lyric="{{lyric}}" bind:changeLyricState="changeLyricState" idHiddenLyric="{{idHiddenLyric}}" />
-	</view>
+	<lyric lyric="{{lyric}}" bind:changeLyricState="changeLyricState" idHiddenLyric="{{idHiddenLyric}}" />
 	<!-- 唱片部分 -->
 	<view class="cdPlayer {{isPlay ? 'play' : ''}}" hidden="{{!idHiddenLyric}}" bindtap="changeLyricState">
 		<image class="rotation {{isPlay? '': 'rotation-pause'}}" src="{{picUrl}}"></image>

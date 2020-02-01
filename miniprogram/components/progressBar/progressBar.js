@@ -7,7 +7,7 @@ import {
 let moveAreaWidth = 0
 let moveItemWidth = 0
 let currectPlayTime = -1
-let movePercent = 0 // 拖动事件记录拖动长度比率
+let movePercent = 0 // 记录拖动事件拖动长度的比率
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 
 // 异步获取当前播放歌曲总时间
@@ -69,6 +69,11 @@ Component({
       backgroundAudioManager.onCanplay(() => {
         this.setTotalTime()
       })
+
+      backgroundAudioManager.onPlay(() => {
+        this.triggerEvent("musicOnPlay")
+      })
+
       backgroundAudioManager.onTimeUpdate(() => {
         const {
           currentTime,
@@ -87,6 +92,16 @@ Component({
           })
           currectPlayTime = floorNumber
         }
+      })
+
+      backgroundAudioManager.onPause(() => {
+        this.triggerEvent("musicOnPause")
+      })
+      backgroundAudioManager.onStop(() => {
+        this.triggerEvent("musicOnStop")
+      })
+      backgroundAudioManager.onEnded(()=>{
+        this.triggerEvent("musicOnEnded")
       })
     },
     // 设置总时间

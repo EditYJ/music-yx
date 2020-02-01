@@ -27,7 +27,7 @@
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
 		<view class="play-progress">
-			<progressBar />
+			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded"/>
 		</view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>

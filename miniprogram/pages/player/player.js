@@ -111,6 +111,25 @@ Page({
     }
     this.loadingMusicDetail(currectPlayList[currectPlayIndex].id)
   },
+  // 添加监听事件/监听音乐播放状态/根据音乐播放状态更改页面按钮图标状态
+  musicOnPlay() {
+    this.setData({
+      isPlay: !backgroundAudioManager.paused
+    })
+  },
+  musicOnPause() {
+    this.setData({
+      isPlay: !backgroundAudioManager.paused
+    })
+  },
+  musicOnStop() {
+    this.setData({
+      isPlay: false
+    })
+  },
+  musicOnEnded() {
+    this.playNext()
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -128,25 +147,6 @@ Page({
 
     // 播放当前id的音乐
     this.loadingMusicDetail(id)
-
-    // 添加监听事件/监听音乐播放状态/根据音乐播放状态更改页面按钮图标状态
-    backgroundAudioManager.onPlay(() => {
-      this.setData({
-        isPlay: !backgroundAudioManager.paused
-      })
-    })
-    backgroundAudioManager.onPause(() => {
-      this.setData({
-        isPlay: !backgroundAudioManager.paused
-      })
-    })
-
-    backgroundAudioManager.onStop(() => {
-      console.log("音乐停止啦")
-      this.setData({
-        isPlay: false
-      })
-    })
 
   },
 

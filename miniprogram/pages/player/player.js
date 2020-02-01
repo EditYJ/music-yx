@@ -66,12 +66,12 @@ Page({
         wx.showToast({
           title: '此为网易云会员特权音乐，无法播放！',
           icon: "none",
-          duration: 5000
-          // complete: () => {
-          //   setTimeout(() => {
-          //     wx.navigateBack()
-          //   }, 5000)
-          // }
+          duration: 5000,
+          complete: () => {
+            setTimeout(() => {
+              this.playNext()
+            }, 3000)
+          }
         })
       } else {
         // 获取成功后传输数据到音频管理器播放相应的音乐

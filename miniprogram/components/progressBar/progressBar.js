@@ -8,6 +8,7 @@ let moveAreaWidth = 0
 let moveItemWidth = 0
 let currectPlayTime = -1
 let movePercent = 0 // 记录拖动事件拖动长度的比率
+let isMove = false // 是否在拖动
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 
 // 异步获取当前播放歌曲总时间
@@ -71,26 +72,30 @@ Component({
       })
 
       backgroundAudioManager.onPlay(() => {
+        isMove = false
         this.triggerEvent("musicOnPlay")
       })
 
       backgroundAudioManager.onTimeUpdate(() => {
-        const {
-          currentTime,
-          duration
-        } = backgroundAudioManager
-        const playPercent = currentTime / duration
-        const moveDis = moveAreaWidth * playPercent
+        // 如果没有在拖动进度条
+        if (!isMove) {
+          const {
+            currentTime,
+            duration
+          } = backgroundAudioManager
+          const playPercent = currentTime / duration
+          const moveDis = moveAreaWidth * playPercent
 
-        const floorNumber = Math.floor(currentTime)
-        // 去抖，防止频繁调用setData
-        if (floorNumber !== currectPlayTime) {
-          this.setCurrentTime(currentTime)
-          this.setData({
-            moveDis,
-            process: playPercent * 100
-          })
-          currectPlayTime = floorNumber
+          const floorNumber = Math.floor(currentTime)
+          // 去抖，防止频繁调用setData
+          if (floorNumber !== currectPlayTime) {
+            this.setCurrentTime(currentTime)
+            this.setData({
+              moveDis,
+              process: playPercent * 100
+            })
+            currectPlayTime = floorNumber
+          }
         }
       })
 
@@ -100,7 +105,7 @@ Component({
       backgroundAudioManager.onStop(() => {
         this.triggerEvent("musicOnStop")
       })
-      backgroundAudioManager.onEnded(()=>{
+      backgroundAudioManager.onEnded(() => {
         this.triggerEvent("musicOnEnded")
       })
     },
@@ -126,12 +131,14 @@ Component({
     // 拖动监听事件
     movableChange(e) {
       if (e.detail.source === "touch") {
+        isMove = true
         movePercent = e.detail.x / moveAreaWidth
       }
     },
 
     // 拖动完成监听事件
     touchEnd(e) {
+      isMove = false
       this.setData({
         process: movePercent * 100
       })

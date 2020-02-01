@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "progressBar": "/components/progressBar/progressBar"
+    "progressBar": "/components/progressBar/progressBar",
+    "lyric": "/components/lyric/lyric"
   },
   "navigationStyle": "custom"
 }

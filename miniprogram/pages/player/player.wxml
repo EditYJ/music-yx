@@ -13,6 +13,10 @@
 	</view>
 </view>
 <view class="container">
+	<!-- 歌词 -->
+	<view>
+		<lyric />
+	</view>
 	<!-- 唱片部分 -->
 	<view class="cdPlayer {{isPlay ? 'play' : ''}}">
 		<image class="rotation {{isPlay? '': 'rotation-pause'}}" src="{{picUrl}}"></image>
@@ -27,7 +31,7 @@
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
 		<view class="play-progress">
-			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded"/>
+			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded" />
 		</view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>

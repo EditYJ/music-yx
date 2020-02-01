@@ -1,5 +1,8 @@
 <!--components/lyric/lyric.wxml-->
 <scroll-view hidden="{{idHiddenLyric}}" bindtap="changeLyricState">
-	<!-- {{lyric}} -->
-  暂无歌词
+	<block wx:for="{{lrc}}" wx:key="item">
+		<view>
+			{{item.text}}
+		</view>
+	</block>
 </scroll-view>

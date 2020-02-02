@@ -14,7 +14,7 @@
 </view>
 <view class="container">
 	<!-- 歌词 -->
-	<lyric lyric="{{lyric}}" bind:changeLyricState="changeLyricState" idHiddenLyric="{{idHiddenLyric}}" />
+	<lyric class="lyric" lyric="{{lyric}}" bind:changeLyricState="changeLyricState" idHiddenLyric="{{idHiddenLyric}}" />
 	<!-- 唱片部分 -->
 	<view class="cdPlayer {{isPlay ? 'play' : ''}}" hidden="{{!idHiddenLyric}}" bindtap="changeLyricState">
 		<image class="rotation {{isPlay? '': 'rotation-pause'}}" src="{{picUrl}}"></image>
@@ -29,7 +29,7 @@
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
 		<view class="play-progress">
-			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded" />
+			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded" bind:getCurrentTime="getCurrentTime"/>
 		</view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>

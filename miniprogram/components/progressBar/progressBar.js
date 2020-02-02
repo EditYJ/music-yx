@@ -95,7 +95,14 @@ Component({
               process: playPercent * 100
             })
             currectPlayTime = floorNumber
+
+            // 抛出当前播放的时间，控制时间相关事件
+            this.triggerEvent('getCurrentTime', {
+              currentTime
+            })
           }
+
+
         }
       })
 

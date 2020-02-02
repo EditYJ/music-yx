@@ -7,6 +7,9 @@ let currectPlayList = []
 // 当前播放音乐
 let currectPlayIndex = -1
 
+// 得到全局对象
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -55,6 +58,8 @@ Page({
       title: name
     })
 
+    app.setCurrentMusicId(musicId)
+
     // 调用云函数 获取歌曲URL
     wx.cloud.callFunction({
       name: 'music',
@@ -102,7 +107,7 @@ Page({
     }).then(val => {
       // console.log('获取歌词成功: ', val)
       let lyric = "暂无歌词"
-      if (val.result.lrc.lyric) {
+      if (val.result.lrc) {
         lyric = val.result.lrc.lyric
       }
       this.setData({
@@ -139,6 +144,12 @@ Page({
     }
     this.loadingMusicDetail(currectPlayList[currectPlayIndex].id)
   },
+
+  //得到当前播放时间
+  getCurrentTime(event) {
+    this.selectComponent('.lyric').update(event.detail.currentTime)
+  },
+
   // 添加监听事件/监听音乐播放状态/根据音乐播放状态更改页面按钮图标状态
   musicOnPlay() {
     this.setData({

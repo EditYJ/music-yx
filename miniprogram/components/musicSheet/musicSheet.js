@@ -26,7 +26,7 @@ Component({
     // 页面展示时候的回调
     show() {
       this.setData({
-        currectMusicId: app.getCurrentMusicId()
+        currectMusicId: parseInt(app.getCurrentMusicId())
       })
     }
   },

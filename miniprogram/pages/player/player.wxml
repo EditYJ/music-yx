@@ -29,7 +29,7 @@
 			<view class="iconfont icon-gengduo2"></view>
 		</view>
 		<view class="play-progress">
-			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded" bind:getCurrentTime="getCurrentTime"/>
+			<progressBar bind:musicOnPlay="musicOnPlay" bind:musicOnPause="musicOnPause" bind:musicOnStop="musicOnStop" bind:musicOnEnded="musicOnEnded" bind:getCurrentTime="getCurrentTime" isSame="{{isSame}}"/>
 		</view>
 		<view class="play-option">
 			<view class="iconfont icon--lbxh"></view>

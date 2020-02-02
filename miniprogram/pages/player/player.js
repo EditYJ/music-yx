@@ -20,7 +20,8 @@ Page({
     name: "",
     ar: [],
     lyric: "",
-    idHiddenLyric: true
+    idHiddenLyric: true,
+    isSame: false
   },
 
   backPrePage() {
@@ -34,7 +35,20 @@ Page({
 
   // 获取音乐详细信息，并播放音乐
   loadingMusicDetail(musicId) {
-    backgroundAudioManager.stop()
+    // 判断是否是同一首音乐
+    if (musicId == app.getCurrentMusicId()) {
+      this.setData({
+        isSame: true
+      })
+    } else {
+      this.setData({
+        isSame: false
+      })
+    }
+
+    if (!this.data.isSame) {
+      backgroundAudioManager.stop()
+    }
     wx.showLoading({
       title: '请稍等...',
     })
@@ -58,6 +72,7 @@ Page({
       title: name
     })
 
+    // 保存当前播放的歌曲id 到全局app对象
     app.setCurrentMusicId(musicId)
 
     // 调用云函数 获取歌曲URL
@@ -86,10 +101,12 @@ Page({
           }
         })
       } else {
-        // 获取成功后传输数据到音频管理器播放相应的音乐
-        backgroundAudioManager.src = url // 设置歌曲URL
-        backgroundAudioManager.title = name // 设置歌曲名
-        backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+        if (!this.data.isSame) {
+          // 获取成功后传输数据到音频管理器播放相应的音乐
+          backgroundAudioManager.src = url // 设置歌曲URL
+          backgroundAudioManager.title = name // 设置歌曲名
+          backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+        }
         this.getLyric(musicId)
         wx.hideLoading()
       }

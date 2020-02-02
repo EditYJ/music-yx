@@ -30,7 +30,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isSame: Boolean
   },
 
   /**
@@ -45,6 +45,9 @@ Component({
 
   lifetimes: {
     ready() {
+      if (this.properties.isSame) {
+        this.setTotalTime()
+      }
       this.getMoveDis()
       this.bindBGMEvent()
     }

@@ -1,0 +1,45 @@
+/* components/topBar/topBar.wxss */
+@import "../../assets/icon/iconfont.wxss";
+.topbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.status {
+  width: 100%;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.navbar_back {
+  font-size: 45rpx;
+  padding: 0rpx 15rpx;
+}
+
+.navbar_title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_title view {
+  width: 40%;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 38rpx;
+}

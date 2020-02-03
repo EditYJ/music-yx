@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "y-topBar": "/components/topBar/topBar"
+  },
+  "navigationStyle": "custom"
 }

@@ -1,0 +1,11 @@
+<!--components/topBar/topBar.wxml-->
+<view style="height:{{statusHeight+navHeight}}px"></view>
+<view class='topbar'>
+	<view class='status' style="height:{{statusHeight}}px"></view>
+	<view class='navbar' style="height:{{navHeight}}px">
+		<view class='iconfont icon-flow  navbar_back' bindtap='backClick' />
+		<view class='navbar_title' style="height:{{navHeight}}px">
+			<slot name="title"></slot>
+		</view>
+	</view>
+</view>

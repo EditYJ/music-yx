@@ -24,6 +24,19 @@ Page({
     isSame: false
   },
 
+  // 获取系统状态栏高度信息
+  attached() {
+    wx.getSystemInfo({
+      success: res => {
+        var isIos = res.system.indexOf('iOS') > -1;
+        this.setData({
+          statusHeight: res.statusBarHeight,
+          navHeight: isIos ? 44 : 48
+        })
+      }
+    })
+  },
+
   backPrePage() {
     wx.navigateBack()
   },
@@ -167,6 +180,8 @@ Page({
     this.selectComponent('.lyric').update(event.detail.currentTime)
   },
 
+
+
   // 添加监听事件/监听音乐播放状态/根据音乐播放状态更改页面按钮图标状态
   musicOnPlay() {
     this.setData({
@@ -187,11 +202,13 @@ Page({
     this.playNext()
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log("播放器页面接收到参数: ", options)
+    this.attached()
     const {
       id,
       index,

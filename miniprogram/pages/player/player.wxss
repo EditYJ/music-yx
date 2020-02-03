@@ -29,7 +29,7 @@ page {
   flex-direction: row;
   align-items: center;
   position: absolute;
-  top: 55rpx;
+  /* top: 55rpx; */
   height: 80rpx;
   color: #fff;
 }

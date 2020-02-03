@@ -1,7 +1,7 @@
 <!--pages/player/player.wxml-->
 <view class="background-container" style="background: url({{picUrl}}) no-repeat top/cover"></view>
 <view class="background-mask"></view>
-<view class="title-bar">
+<view class="title-bar" style="top: {{statusHeight+1}}px;">
 	<view class="iconfont icon-flow" bindtap="backPrePage" />
 	<view class="title">
 		<view class="name">{{name}}</view>

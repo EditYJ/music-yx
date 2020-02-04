@@ -4,7 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    showPanel:{
+      type: Boolean,
+      value: false
+    }
+  },
 
+  options: {
+    styleIsolation: "apply-shared"
   },
 
   /**
@@ -18,6 +25,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    closePanel(){
+      this.setData({
+        showPanel: false
+      })
+    }
   }
 })

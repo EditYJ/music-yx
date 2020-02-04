@@ -1,2 +1,6 @@
 <!--components/bottomModel/bottomModel.wxml-->
-<text>components/bottomModel/bottomModel.wxml</text>
+<view class="cover" hidden="{{!showPanel}}">
+  <view class="bottom">
+   <i class="iconfont icon-guanbi" bindtap="closePanel"></i>
+  </view>
+</view>

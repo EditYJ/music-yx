@@ -9,4 +9,7 @@
       <y-search iconfont-class="iconfont" search-icon="icon-icon--" />
     </view>
   </view>
+
+  <!-- 底部弹出框 -->
+  <y-bottomModel showPanel="{{showPanel}}"> </y-bottomModel>
 </view>

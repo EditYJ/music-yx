@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "y-search": "/components/search/search"
+    "y-search": "/components/search/search",
+    "y-bottomModel": "/components/bottomModel/bottomModel"
   },
   "navigationBarTitleText": "发现"
 }

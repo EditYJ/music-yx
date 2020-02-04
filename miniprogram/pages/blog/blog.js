@@ -5,12 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showPanel: false
   },
 
   // 发布
   publishThink(){
-    console.log('点击了发布按钮')
+    this.setData({
+      showPanel: true
+    })
   },
 
   /**

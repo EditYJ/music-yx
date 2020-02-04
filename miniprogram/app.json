@@ -27,7 +27,7 @@
       },
       {
         "pagePath": "pages/blog/blog",
-        "text": "评论",
+        "text": "发现",
         "iconPath": "images/talk.png",
         "selectedIconPath": "images/talk_blue.png"
       },
@@ -39,6 +39,5 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "sitemapLocation": "sitemap.json"
 }

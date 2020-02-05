@@ -2,5 +2,7 @@
 <view class="cover" hidden="{{!showPanel}}">
   <view class="bottom">
    <i class="iconfont icon-guanbi" bindtap="closePanel"></i>
+
+   <slot name="model-content"></slot>
   </view>
 </view>

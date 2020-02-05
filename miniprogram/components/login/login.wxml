@@ -1,0 +1,6 @@
+<!--components/login/login.wxml-->
+<y-bottomModel showPanel="{{showPanel}}">
+  <view slot="model-content">
+    <button class="button" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">获取微信授权信息</button>
+  </view>
+</y-bottomModel>

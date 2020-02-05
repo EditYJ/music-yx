@@ -9,9 +9,43 @@ Page({
   },
 
   // 发布
-  publishThink(){
-    this.setData({
-      showPanel: true
+  publishThink() {
+    wx.getSetting({
+      success: (res) => {
+        console.log('获取授权情况: ', res)
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: (res) => {
+              console.log('获取用户信息: ', res)
+              this.onLoginSuccess({
+                detail: res.userInfo
+              })
+            },
+          })
+        } else {
+          this.setData({
+            showPanel: true
+          })
+        }
+      }
+    })
+  },
+  // 授权成功的回调函数
+  onLoginSuccess(event) {
+    const {
+      nickName,
+      avatarUrl
+    } = event.detail
+
+    wx.navigateTo({
+      url: `/pages/blog-edit/blog-edit?nickName=${nickName}&avatarUrl=${avatarUrl}`,
+    })
+
+  },
+  // 授权失败的回调函数
+  onLoginFail() {
+    wx.showModal({
+      title: '需要授权才能发布评论',
     })
   },
 

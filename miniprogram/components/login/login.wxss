@@ -1,0 +1,11 @@
+/* components/login/login.wxss */
+.button{
+  font-size: 32rpx;
+  height: 80rpx;
+  background-color: #409EFF;
+  color: #fff;
+  margin: 110rpx;
+}
+.button:active{
+  background-color: rgb(54, 143, 233);
+}

@@ -11,5 +11,5 @@
   </view>
 
   <!-- 底部弹出框 -->
-  <y-bottomModel showPanel="{{showPanel}}"> </y-bottomModel>
+  <y-login showPanel="{{showPanel}}" bind:loginSuccess="onLoginSuccess" bind:loginFail="onLoginFail"> </y-login>
 </view>

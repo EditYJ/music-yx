@@ -11,7 +11,8 @@ Component({
   },
 
   options: {
-    styleIsolation: "apply-shared"
+    styleIsolation: "apply-shared",
+    multipleSlots: true
   },
 
   /**

@@ -1,2 +1,15 @@
-<!--pages/blog-edit/blog-edit.wxml-->
-<text>pages/blog-edit/blog-edit.wxml</text>
+<view class="container">
+	<textarea class="content" placeholder="分享新鲜事..." bindinput="handleInput" maxlength="140" auto-focus bindfocus="handleFocus" bindblur="handleBlur"></textarea>
+	<view class="image-list">
+		<!-- 显示图片 -->
+
+		<!-- 选择图片 -->
+		<view class="image-wrap selectphoto">
+			<i class="iconfont icon-add"></i>
+		</view>
+	</view>
+</view>
+<view class="footer" style="bottom: {{bottom}}px;">
+	<view class="send-btn">发布</view>
+	<text>{{wordsNum}}</text>
+</view>

@@ -71,6 +71,13 @@
 					"pathName": "pages/blog/blog",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/blog-edit/blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName=俞杰&avatarUrl=https://wx.qlogo.cn/mmopen/vi_32/uiamnl5EFFhcnrz1cxINOej0nib908QpZrWnw5Hiatqjz4uW54da46ZrN7EvCYqs6jGhfoxDXDkAHuicUHnlyIZc0A/132",
+					"scene": null
 				}
 			]
 		}

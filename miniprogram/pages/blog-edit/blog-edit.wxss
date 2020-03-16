@@ -12,7 +12,6 @@
 .image-list {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20rpx;
 }
 
 .image-wrap {
@@ -22,6 +21,27 @@
   overflow: hidden;
   text-align: center;
   line-height: 220rpx;
+  margin: 5rpx;
+}
+
+.image {
+  height: 224rpx;
+  width: 224rpx;
+}
+
+.icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #000;
+  opacity: 0.4;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 38rpx;
+  font-weight: bolder;
 }
 
 .selectphoto {

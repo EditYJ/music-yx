@@ -2,9 +2,15 @@
 	<textarea class="content" placeholder="分享新鲜事..." bindinput="handleInput" maxlength="140" auto-focus bindfocus="handleFocus" bindblur="handleBlur"></textarea>
 	<view class="image-list">
 		<!-- 显示图片 -->
+		<block wx:for="{{images}}" wx:key="*this">
+			<view class="image-wrap">
+				<image class="image" src="{{item.path}}" mode="aspectFill" bindtap="handlePreView" data-image-url="{{item.path}}"></image>
+				<i class="iconfont icon-guanbi icon"  data-index="{{index}}" bindtap="handleImgDel"></i>
+			</view>
+		</block>
 
 		<!-- 选择图片 -->
-		<view class="image-wrap selectphoto">
+		<view hidden="{{isFullImg}}" class="image-wrap selectphoto" bindtap="handleChooseImg">
 			<i class="iconfont icon-add"></i>
 		</view>
 	</view>

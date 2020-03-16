@@ -1,5 +1,6 @@
 // pages/blog-edit/blog-edit.js
 const MAX_WORDS_LENGTH = 140
+const MAX_IMG_NUM = 9
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
    */
   data: {
     wordsNum: 0,
-    bottom: 0
+    bottom: 0,
+    images: [],
+    isFullImg: false
   },
 
   /**
@@ -87,6 +90,39 @@ Page({
   handleBlur(e) {
     this.setData({
       bottom: 0
+    })
+  },
+  // 选择图片
+  handleChooseImg() {
+    const max = MAX_IMG_NUM - this.data.images.length
+    wx.chooseImage({
+      count: max,
+      complete: (res) => {
+        this.setData({
+          images: [...this.data.images, ...res.tempFiles],
+        })
+        this.setData({
+          isFullImg: MAX_IMG_NUM - this.data.images.length <= 0 ? true : false
+        })
+      },
+    })
+  },
+  // 删除当前图片
+  handleImgDel(e) {
+    const currectIndex = e.target.dataset.index
+    this.data.images.splice(currectIndex, 1)
+    this.setData({
+      images: this.data.images,
+      isFullImg: MAX_IMG_NUM - this.data.images.length <= 0 ? true : false
+    })
+  },
+  // 预览当前图片
+  handlePreView(e) {
+    wx.previewImage({
+      urls: this.data.images.map(val => {
+        return val.path
+      }),
+      current: e.target.dataset.imageUrl
     })
   }
 })

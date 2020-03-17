@@ -1,6 +1,12 @@
 // pages/blog-edit/blog-edit.js
 const MAX_WORDS_LENGTH = 140
 const MAX_IMG_NUM = 9
+
+const db = wx.cloud.database()
+
+// 输入的内容
+let content = ""
+let userInfo = {}
 Page({
 
   /**
@@ -18,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('博客编辑页面接收参数:', options)
+    userInfo = options
   },
 
   /**
@@ -72,6 +79,7 @@ Page({
   //////////////
   // 处理输入事件
   handleInput(e) {
+    content = e.detail.value
     let length = e.detail.value.length
     if (length >= MAX_WORDS_LENGTH) {
       length = `最大字数为${MAX_WORDS_LENGTH}`
@@ -123,6 +131,69 @@ Page({
         return val.path
       }),
       current: e.target.dataset.imageUrl
+    })
+  },
+  // 发布
+  pushContent() {
+    if (content.trim() == '') {
+      wx.showModal({
+        title: '内容为空',
+        content: '请输入内容,再继续发布'
+      })
+      return
+    }
+    wx.showLoading({
+      title: '发布中...',
+    })
+    const promiseArr = this.data.images.map(item => {
+      return new Promise((resolve, reject) => {
+        const suffix = /\.\w+$/.exec(item.path)
+        wx.cloud.uploadFile({
+          cloudPath: `blog/${Date.now()}-${Math.random()*100000}${suffix}`,
+          filePath: item.path,
+          success: (res) => {
+            resolve(res)
+          },
+          fail: (err) => {
+            reject(err)
+          }
+        })
+      })
+    })
+
+    Promise.all(promiseArr).then(arr => {
+      const imgIds = arr.map(item => {
+        return item.fileID
+      })
+      db.collection('blog').add({
+        data: {
+          userInfo,
+          content,
+          imgIds,
+          createTime: db.serverDate()
+        }
+      }).then(() => {
+        wx.hideLoading({
+          complete: () => {
+            wx.showToast({
+              title: '发布成功',
+            })
+          },
+        })
+
+        // 回到博客列表界面/并刷新
+        wx.navigateBack({
+          complete: (res) => {},
+        })
+      })
+    }).catch(err => {
+      wx.hideLoading({
+        complete: () => {
+          wx.showToast({
+            title: '发布失败，请重试',
+          })
+        },
+      })
     })
   }
 })

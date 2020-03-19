@@ -1,0 +1,4 @@
+<!--components/blogCard/blogCard.wxml-->
+<view>
+  {{blog.content}}
+</view>

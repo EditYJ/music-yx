@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showPanel: false
+    showPanel: false,
+    blogList: []
   },
 
   // 发布
@@ -48,12 +49,28 @@ Page({
       title: '需要授权才能发布评论',
     })
   },
+  // 获取博客列表
+  loadingBlogList() {
+    wx.cloud.callFunction({
+      name: "blog",
+      data: {
+        $url: "getList",
+        start: 0,
+        count: 10
+      }
+    }).then(res => {
+      console.log("博客列表", res)
+      this.setData({
+        blogList: [...this.data.blogList, ...res.result]
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.loadingBlogList()
   },
 
   /**

@@ -1,0 +1,6 @@
+<!--pages/blog-detail/blog-detail.wxml-->
+<view>
+	<view class="blog-content">
+		<y-blog-card blog="{{blog}}"></y-blog-card>
+	</view>
+</view>

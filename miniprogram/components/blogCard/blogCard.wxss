@@ -1,1 +1,61 @@
 /* components/blogCard/blogCard.wxss */
+.card {
+  background-color: white;
+  padding: 20rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-info .avatar {
+  margin-right: 20rpx;
+}
+
+.user-info .avatar image {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 50%;
+}
+
+.user-info .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 78rpx;
+}
+
+.user-info .name {
+  font-size: medium;
+}
+
+.user-info .time {
+  color: rgb(194, 194, 194);
+  font-size: small;
+}
+
+.content {
+  margin: 10rpx 0;
+}
+
+.img-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.img-list image {
+  width: 230rpx;
+  height: 230rpx;
+  border-radius: 10rpx;
+}
+
+.img-list .img-item {
+  margin-right: 10rpx;
+}
+
+.img-list .img-item:nth-child(3n) {
+  margin-right: 0;
+}

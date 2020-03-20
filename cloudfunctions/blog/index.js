@@ -27,6 +27,13 @@ exports.main = async (event, context) => {
       .then(res => res.data)
   })
 
+  // 通过id查询单个博客信息
+  app.router("getBlogById", async (ctx, next) => {
+    ctx.body = await collec.where({
+      _id: event.blogId
+    }).get().then(res => res.data)
+  })
+
 
 
   return app.serve()

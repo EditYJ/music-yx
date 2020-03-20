@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "y-blog-card": "/components/blogCard/blogCard"
+  },
+  "navigationBarTitleText": "动态详情"
+}

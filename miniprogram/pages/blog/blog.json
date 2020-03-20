@@ -4,5 +4,6 @@
     "y-login": "/components/login/login",
     "y-blog-card": "/components/blogCard/blogCard"
   },
-  "navigationBarTitleText": "发现"
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true
 }

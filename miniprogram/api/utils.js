@@ -36,3 +36,24 @@ export const transformSec = (seconds) => {
 export const addZero = (number) => {
   return number < 10 ? `0${number}` : `${number}`
 }
+
+export const fmtTime = (date) => {
+  let fmt = "yyyy-MM-dd hh:mm:ss"
+
+  const regMap = {
+    'y+': date.getFullYear(),
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+  }
+
+  for (const key in regMap) {
+    if (new RegExp(`(${key})`).test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, addZero(regMap[key]))
+    }
+  }
+  
+  return fmt
+}

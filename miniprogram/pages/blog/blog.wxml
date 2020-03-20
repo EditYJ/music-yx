@@ -11,11 +11,12 @@
 	</view>
 	<view class="blog-list">
 		<block wx:for="{{blogList}}" wx:key="_id">
-			<view class="blog-content">
+			<view class="blog-content" bindtap="enterDetail" data-blog-id="{{item._id}}">
 				<y-blog-card blog="{{item}}"></y-blog-card>
 			</view>
 		</block>
 	</view>
+	<view hidden="{{showTip}}" class="tip">Sorry, 没有更多了...</view>
 
 	<!-- 底部弹出框 -->
 	<y-login showPanel="{{showPanel}}" bind:loginSuccess="onLoginSuccess" bind:loginFail="onLoginFail"> </y-login>

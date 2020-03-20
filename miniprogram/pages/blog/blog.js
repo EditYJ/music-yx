@@ -6,7 +6,8 @@ Page({
    */
   data: {
     showPanel: false,
-    blogList: []
+    blogList: [],
+    showTip: true
   },
 
   // 发布
@@ -50,12 +51,21 @@ Page({
     })
   },
   // 获取博客列表
-  loadingBlogList() {
+  loadingBlogList(start = 0) {
+    wx.showLoading({
+      title: '请稍后...',
+    })
+    if (start == 0) {
+      this.setData({
+        showTip: true
+      })
+    }
+
     wx.cloud.callFunction({
       name: "blog",
       data: {
         $url: "getList",
-        start: 0,
+        start: start,
         count: 10
       }
     }).then(res => {
@@ -63,6 +73,22 @@ Page({
       this.setData({
         blogList: [...this.data.blogList, ...res.result]
       })
+      wx.hideLoading({
+        complete: () => {
+          wx.stopPullDownRefresh()
+          if (res.result.length <= 0) {
+            this.setData({
+              showTip: false
+            })
+          }
+        },
+      })
+    })
+  },
+  enterDetail(e){
+    const ds = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/blog-detail/blog-detail?blogId=${ds.blogId}`,
     })
   },
 
@@ -70,7 +96,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadingBlogList()
+    this.loadingBlogList(0)
   },
 
   /**
@@ -105,14 +131,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      blogList: []
+    })
+    this.loadingBlogList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.showTip == true) {
+      this.loadingBlogList(this.data.blogList.length)
+    }
   },
 
   /**

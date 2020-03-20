@@ -144,6 +144,7 @@ Page({
     }
     wx.showLoading({
       title: '发布中...',
+      mask: true
     })
     const promiseArr = this.data.images.map(item => {
       return new Promise((resolve, reject) => {
@@ -182,9 +183,11 @@ Page({
         })
 
         // 回到博客列表界面/并刷新
-        wx.navigateBack({
-          complete: (res) => {},
-        })
+        wx.navigateBack()
+        const pages = getCurrentPages()
+        // 取上面一个页面
+        const prePage = pages[pages.length - 2]
+        prePage.onPullDownRefresh()
       })
     }).catch(err => {
       wx.hideLoading({

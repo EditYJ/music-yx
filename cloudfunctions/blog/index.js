@@ -19,7 +19,17 @@ exports.main = async (event, context) => {
   })
 
   app.router("getList", async (ctx, next) => {
+    const keywords = event.keywords
+    const rule = {}
+    if (keywords.trim() != '') {
+      rule.content = db.RegExp({
+        regexp: keywords,
+        options: 'i'
+      })
+    }
+
     ctx.body = await collec
+      .where(rule)
       .skip(event.start)
       .limit(event.count)
       .orderBy("createTime", "desc")

@@ -1,4 +1,5 @@
 // pages/blog/blog.js
+let keywords = ''
 Page({
 
   /**
@@ -8,6 +9,13 @@ Page({
     showPanel: false,
     blogList: [],
     showTip: true
+  },
+  onSearch(e) {
+    this.setData({
+      blogList: []
+    })
+    keywords = e.detail.keywords
+    this.loadingBlogList()
   },
 
   // 发布
@@ -64,9 +72,10 @@ Page({
     wx.cloud.callFunction({
       name: "blog",
       data: {
-        $url: "getList",
-        start: start,
-        count: 10
+        start,
+        keywords,
+        count: 10,
+        $url: "getList"
       }
     }).then(res => {
       console.log("博客列表", res)
@@ -85,7 +94,7 @@ Page({
       })
     })
   },
-  enterDetail(e){
+  enterDetail(e) {
     const ds = e.currentTarget.dataset
     wx.navigateTo({
       url: `/pages/blog-detail/blog-detail?blogId=${ds.blogId}`,

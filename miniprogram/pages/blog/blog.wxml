@@ -6,7 +6,7 @@
 			<i class="iconfont icon-bianji"></i>
 		</view>
 		<view class="search-container">
-			<y-search iconfont-class="iconfont" search-icon="icon-icon--" />
+			<y-search iconfont-class="iconfont" search-icon="icon-icon--" bind:search="onSearch"/>
 		</view>
 	</view>
 	<view class="blog-list">

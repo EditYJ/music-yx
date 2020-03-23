@@ -6,14 +6,16 @@
 			<i class="iconfont icon-bianji"></i>
 		</view>
 		<view class="search-container">
-			<y-search iconfont-class="iconfont" search-icon="icon-icon--" bind:search="onSearch"/>
+			<y-search iconfont-class="iconfont" search-icon="icon-icon--" bind:search="onSearch" />
 		</view>
 	</view>
 	<view class="blog-list">
 		<block wx:for="{{blogList}}" wx:key="_id">
-			<view class="blog-content" bindtap="enterDetail" data-blog-id="{{item._id}}">
-				<y-blog-card blog="{{item}}"></y-blog-card>
+			<view class="blog-content">
+				<y-blog-card blog="{{item}}" bindtap="enterDetail" data-blog-id="{{item._id}}" />
+				<y-blog-control blogId="{{item._id}}" iconfont="iconfont" talkicon="icon-pinglun1" shareicon="icon-fenxiang1" />
 			</view>
+
 		</block>
 	</view>
 	<view hidden="{{showTip}}" class="tip">Sorry, 没有更多了...</view>

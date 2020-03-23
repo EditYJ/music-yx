@@ -1,0 +1,54 @@
+/* components/blogControl/blogControl.wxss */
+.blog-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: rgb(240, 240, 240) solid 1px;
+  background-color: #fff;
+  font-size: 30rpx;
+}
+
+.item {
+  padding: 18rpx;
+}
+
+.item text {
+  margin-left: 10rpx;
+}
+
+.content {
+  text-align: left;
+  width: 680rpx;
+  height: 200rpx;
+  box-sizing: border-box;
+  margin: 15rpx 0rpx 0 15rpx;
+}
+
+.model-title {
+  text-align: left;
+  margin: 15rpx 0rpx 0 15rpx;
+}
+.option{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 15rpx;
+}
+.send-btn {
+  width: 120rpx;
+  background-color: #409EFF;
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+.cancel-btn {
+  width: 80rpx;
+  background-color: rgb(158, 158, 158);
+  border-radius: 5px;
+  padding: 15rpx 24rpx;
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}

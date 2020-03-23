@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "y-login": "/components/login/login",
+    "y-bottomModel": "/components/bottomModel/bottomModel"
+  }
+}

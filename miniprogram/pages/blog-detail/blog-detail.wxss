@@ -3,7 +3,7 @@ page {
   background-color: rgb(245, 245, 245);
 }
 
-.blog-content {}
+/* .blog-content {} */
 
 .talk-list {
   margin-top: 15rpx;
@@ -53,7 +53,8 @@ page {
   bottom: 0;
   width: 100%;
 }
-.tip{
+
+.tip {
   margin-top: 20rpx;
   text-align: center;
   color: rgb(150, 150, 150);

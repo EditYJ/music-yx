@@ -82,16 +82,13 @@ Page({
       this.setData({
         blogList: [...this.data.blogList, ...res.result]
       })
-      wx.hideLoading({
-        complete: () => {
-          wx.stopPullDownRefresh()
-          if (res.result.length <= 0) {
-            this.setData({
-              showTip: false
-            })
-          }
-        },
-      })
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      if (res.result.length <= 0) {
+        this.setData({
+          showTip: false
+        })
+      }
     })
   },
   enterDetail(e) {

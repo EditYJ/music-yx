@@ -16,6 +16,14 @@ Page({
       blogId
     } = options
     console.log('进入详情页面，收到参数：', options)
+    this.getDetail(blogId)
+  },
+
+  getDetail(blogId) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    })
     wx.cloud.callFunction({
       name: "blog",
       data: {
@@ -24,9 +32,10 @@ Page({
       }
     }).then(res => {
       console.log("获取博客详情：", res)
+      wx.hideLoading()
       this.setData({
         blog: {
-          ...res.result[0]
+          ...res.result.blogInfo[0]
         }
       })
     })

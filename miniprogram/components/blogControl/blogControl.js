@@ -25,6 +25,15 @@ Component({
     'talkicon',
     'shareicon'
   ],
+  lifetimes: {
+    attached() {
+      // 在组件实例进入页面节点树时执行
+      this.getDetail(this.properties.blogId)
+    },
+    detached() {
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
 
   /**
    * 组件的初始数据
@@ -32,13 +41,28 @@ Component({
   data: {
     showPanel: false,
     showTalkTextArea: false,
-    bottomDistance: 0
+    bottomDistance: 0,
+    total: 0
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    // 查询评论数量
+    getDetail(blogId) {
+      wx.cloud.callFunction({
+        name: "blog",
+        data: {
+          blogId,
+          $url: "getBlogById"
+        }
+      }).then(res => {
+        this.setData({
+          total: res.result.total
+        })
+      })
+    },
     handleTalk() {
       getUserInfoState((res) => {
         userInfo = res

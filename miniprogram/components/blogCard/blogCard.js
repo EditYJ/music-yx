@@ -19,11 +19,13 @@ Component({
     }
   },
 
+
   /**
    * 组件的初始数据
    */
   data: {
-    createTime: ''
+    createTime: '',
+    total: 0
   },
 
   /**
@@ -37,5 +39,6 @@ Component({
         current: ds.img
       })
     }
+    
   }
 })

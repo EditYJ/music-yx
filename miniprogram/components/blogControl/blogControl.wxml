@@ -2,7 +2,7 @@
 <view class="blog-control">
 	<view class="item" catchtap="handleTalk">
 		<i class="iconfont talkicon" />
-		<text>评论(0)</text>
+		<text>评论({{total}})</text>
 	</view>
 	<view class="item" catchtap="handleShare">
 		<i class="iconfont shareicon" />

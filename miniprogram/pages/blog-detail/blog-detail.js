@@ -1,11 +1,17 @@
 // pages/blog-detail/blog-detail.js
+import {
+  fmtTime
+} from '../../api/utils'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    blog: {}
+    blog: {},
+    commentList: [],
+    blogId: '',
+    haveTalk: false
   },
 
   /**
@@ -15,11 +21,14 @@ Page({
     const {
       blogId
     } = options
+    this.setData({
+      blogId
+    })
     console.log('进入详情页面，收到参数：', options)
-    this.getDetail(blogId)
+    this.getDetail()
   },
 
-  getDetail(blogId) {
+  getDetail() {
     wx.showLoading({
       title: '请稍后...',
       mask: true
@@ -27,16 +36,29 @@ Page({
     wx.cloud.callFunction({
       name: "blog",
       data: {
-        blogId,
+        blogId: this.data.blogId,
         $url: "getBlogById"
       }
     }).then(res => {
       console.log("获取博客详情：", res)
       wx.hideLoading()
+      // 格式化时间
+      const commentList = res.result.commonts.data.map(item => {
+        return {
+          ...item,
+          createTime: fmtTime(new Date(item.createTime))
+        }
+      })
+      if (commentList.length > 0) {
+        this.setData({
+          haveTalk: true
+        })
+      }
       this.setData({
         blog: {
           ...res.result.blogInfo[0]
-        }
+        },
+        commentList
       })
     })
   },
@@ -86,7 +108,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (e) {
+    console.log(e)
+    const {blog} = e.target.dataset
+    return {
+      title: blog.content,
+      path: `/pages/blog-detail/blog-detail?blogId=${blog._id}`
+    }
   }
 })

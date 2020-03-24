@@ -2,3 +2,59 @@
 page {
   background-color: rgb(245, 245, 245);
 }
+
+.blog-content {}
+
+.talk-list {
+  margin-top: 15rpx;
+  margin-bottom: 100rpx;
+}
+
+.talk-item {
+  background-color: #fff;
+  border-bottom: 1px solid rgb(240, 240, 240);
+  padding: 15rpx;
+}
+
+.title {
+  background-color: #fff;
+  padding: 15rpx;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.avater {
+  margin-right: 15rpx;
+}
+
+.avater image {
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+}
+
+.detail .time {
+  font-size: small;
+  color: rgb(150, 150, 150);
+}
+
+.content {
+  margin-left: 80rpx;
+}
+
+.blog-control {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.tip{
+  margin-top: 20rpx;
+  text-align: center;
+  color: rgb(150, 150, 150);
+}

@@ -1,6 +1,27 @@
 <!--pages/blog-detail/blog-detail.wxml-->
-<view>
+<scroll-view scroll-y="true" class="continer">
 	<view class="blog-content">
 		<y-blog-card blog="{{blog}}"></y-blog-card>
 	</view>
-</view>
+	<view wx:if="{{!haveTalk}}" class="tip">暂时还没有评论哦~ 赶紧坐上沙发~</view>
+	<view wx:if="{{haveTalk}}" class="talk-list">
+		<view class="title">评论列表</view>
+		<block wx:for="{{commentList}}" wx:key="_id">
+			<view class="talk-item">
+				<view class="user">
+					<view class="avater">
+						<image src="{{item.userInfo.avatarUrl}}"></image>
+					</view>
+					<view class="detail">
+						<view class="name">{{item.userInfo.nickName}}</view>
+						<view class="time">{{item.createTime}}</view>
+					</view>
+				</view>
+				<view class="content">{{item.content}}</view>
+			</view>
+		</block>
+	</view>
+	<view class="blog-control">
+		<y-blog-control bind:reflash="getDetail" blogId="{{blogId}}" typeBottom="{{2}}" iconfont="iconfont" talkicon="icon-pinglun1" shareicon="icon-fenxiang1" blog="{{blog}}" />
+	</view>
+</scroll-view>

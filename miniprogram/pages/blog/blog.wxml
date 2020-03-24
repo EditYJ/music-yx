@@ -13,7 +13,7 @@
 		<block wx:for="{{blogList}}" wx:key="_id">
 			<view class="blog-content">
 				<y-blog-card blog="{{item}}" bindtap="enterDetail" data-blog-id="{{item._id}}" />
-				<y-blog-control blogId="{{item._id}}" iconfont="iconfont" talkicon="icon-pinglun1" shareicon="icon-fenxiang1" />
+				<y-blog-control bind:reflash="onPullDownRefresh" blogId="{{item._id}}" iconfont="iconfont" talkicon="icon-pinglun1" shareicon="icon-fenxiang1" showNum="{{true}}" blog="{{item}}" />
 			</view>
 
 		</block>

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "y-blog-card": "/components/blogCard/blogCard"
+    "y-blog-card": "/components/blogCard/blogCard",
+    "y-blog-control": "/components/blogControl/blogControl"
   },
   "navigationBarTitleText": "动态详情"
 }

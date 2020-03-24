@@ -17,7 +17,16 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    blogId: String
+    blogId: String,
+    blog: Object,
+    showNum: {
+      type: Boolean,
+      value: false
+    },
+    typeBottom: {
+      type: Number,
+      value: 1
+    }
   },
 
   externalClasses: [
@@ -42,7 +51,8 @@ Component({
     showPanel: false,
     showTalkTextArea: false,
     bottomDistance: 0,
-    total: 0
+    total: 0,
+    bottomDistance: 0
   },
 
   /**
@@ -75,9 +85,7 @@ Component({
         })
       })
     },
-    handleShare() {
-      console.log("点击了分享")
-    },
+
     // 授权成功的回调函数
     onLoginSuccess(event) {
       userInfo = event.detail
@@ -103,12 +111,19 @@ Component({
 
     // 处理评论textArea 获取的焦点
     handleFocus(e) {
+      console.log(e.detail.height)
       if (e.detail.height == 0) {
         return
+      } else if (this.properties.typeBottom == 2) {
+        this.setData({
+          bottomDistance: e.detail.height - 300
+        })
+      } else {
+        this.setData({
+          bottomDistance: e.detail.height - getDefaultTabBarHeight()
+        })
       }
-      this.setData({
-        bottomDistance: e.detail.height - getDefaultTabBarHeight()
-      })
+
     },
     // 失去焦点
     handleBlur() {
@@ -139,6 +154,7 @@ Component({
           wx.showToast({
             title: '发布成功！',
           })
+          this.triggerEvent('reflash', '')
           if (canSendMsg) {
             // 请求云函数发送订阅消息
             wx.cloud.callFunction({

@@ -2,11 +2,13 @@
 <view class="blog-control">
 	<view class="item" catchtap="handleTalk">
 		<i class="iconfont talkicon" />
-		<text>评论({{total}})</text>
+		<text>评论<text hidden="{{!showNum}}">({{total}})</text></text>
 	</view>
-	<view class="item" catchtap="handleShare">
-		<i class="iconfont shareicon" />
-		<text>分享</text>
+	<view class="item">
+		<button open-type="share" class="item-btn" data-blog="{{blog}}">
+			<i class="iconfont shareicon" />
+			<text>分享</text>
+		</button>
 	</view>
 </view>
 <y-login showPanel="{{showPanel}}" bind:loginSuccess="onLoginSuccess" bind:loginFail="onLoginFail" />

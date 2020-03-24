@@ -1,6 +1,6 @@
 <!--components/bottomModel/bottomModel.wxml-->
 <view class="cover" hidden="{{!showPanel}}">
-	<view class="bottom" style="bottom:{{bottomDistance}}px">
+	<view class="bottom" style="bottom:{{bottomDistance}}px;">
 		<i class="iconfont icon-guanbi" bindtap="closePanel"></i>
 
 		<slot name="model-content"></slot>

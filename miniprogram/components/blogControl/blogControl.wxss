@@ -29,19 +29,24 @@
   text-align: left;
   margin: 15rpx 0rpx 0 15rpx;
 }
-.option{
+
+.option {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 15rpx;
 }
+
 .send-btn {
-  width: 120rpx;
+  width: 80rpx;
   background-color: #409EFF;
   color: #fff;
+  border-radius: 5px;
+  padding: 15rpx 24rpx;
   font-size: 24rpx;
   margin-right: 20rpx;
   margin-left: 20rpx;
 }
+
 .cancel-btn {
   width: 80rpx;
   background-color: rgb(158, 158, 158);

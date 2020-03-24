@@ -15,6 +15,7 @@ Page({
     const {
       blogId
     } = options
+    console.log('进入详情页面，收到参数：', options)
     wx.cloud.callFunction({
       name: "blog",
       data: {

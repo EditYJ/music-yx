@@ -38,9 +38,8 @@ export const addZero = (number) => {
 }
 
 // 格式化日期
-export const fmtTime = (date) => {
-  let fmt = "yyyy-MM-dd hh:mm:ss"
-
+export const fmtTime = (date, fmt = "yyyy-MM-dd hh:mm:ss") => {
+  
   const regMap = {
     'y+': date.getFullYear(),
     'M+': date.getMonth() + 1,
@@ -55,7 +54,7 @@ export const fmtTime = (date) => {
       fmt = fmt.replace(RegExp.$1, addZero(regMap[key]))
     }
   }
-
+  
   return fmt
 }
 
@@ -91,4 +90,32 @@ export const getDefaultTabBarHeight = () => {
   const ktxScreentHeight = systemInfo.screenHeight
   // 底部tabBar的高度
   return ktxScreentHeight - ktxStatusHeight - navigationHeight - ktxWindowHeight
+}
+
+// 请求用户授权订阅消息
+export const requestSubMsg = (templateId) => {
+  const promise = new Promise((resolve, reject) => {
+    wx.requestSubscribeMessage({
+      tmplIds: [templateId],
+      success(res) {
+        if (res[templateId] == 'accept') {
+          //用户同意了订阅，允许订阅消息
+          wx.showToast({
+            title: '订阅成功'
+          })
+          resolve(true)
+        } else {
+          //用户拒绝了订阅，禁用订阅消息
+          wx.showToast({
+            title: '订阅失败'
+          })
+          resolve(false)
+        }
+      },
+      fail(err) {
+        reject(err)
+      }
+    })
+  })
+  return promise
 }

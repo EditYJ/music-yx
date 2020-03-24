@@ -1,10 +1,13 @@
 // components/blogControl/blogControl.js
 import {
   getUserInfoState,
-  getDefaultTabBarHeight
+  getDefaultTabBarHeight,
+  requestSubMsg,
+  fmtTime
 } from '../../api/utils'
 
 const db = wx.cloud.database()
+const templateId = "2cQTxpd8lCGUnL93U_7HRCKAIyAUNWsICL5SvGqzx84"
 
 let talkContent = ""
 let userInfo = {}
@@ -91,26 +94,40 @@ Component({
     },
     // 发布按钮
     push() {
-      wx.showLoading({
-        title: '发布中,请稍后...',
-        mask: true
-      })
-      db.collection('blog-comment').add({
-        data: {
-          userInfo,
-          content: talkContent,
-          blogId: this.properties.blogId
-        }
-      }).then(() => {
-        wx.hideLoading({
-          complete: (res) => {
-            this.setData({
-              showTalkTextArea: false
+      // 先请求发送订阅消息权限
+      requestSubMsg(templateId).then((canSendMsg) => {
+        wx.showLoading({
+          title: '发布中,请稍后...',
+          mask: true
+        })
+        db.collection('blog-comment').add({
+          data: {
+            userInfo,
+            content: talkContent,
+            blogId: this.properties.blogId
+          }
+        }).then(() => {
+          wx.hideLoading()
+          this.setData({
+            showTalkTextArea: false
+          })
+          wx.showToast({
+            title: '发布成功！',
+          })
+          if (canSendMsg) {
+            // 请求云函数发送订阅消息
+            wx.cloud.callFunction({
+              name: 'sendSubMessage',
+              data: {
+                templateId,
+                blogId: this.properties.blogId,
+                result: '评价成功',
+                content: talkContent,
+              }
+            }).then((res) => {
+              console.log('订阅消息云函数调用结果：', res)
             })
-            wx.showToast({
-              title: '发布成功！',
-            })
-          },
+          }
         })
       })
     },

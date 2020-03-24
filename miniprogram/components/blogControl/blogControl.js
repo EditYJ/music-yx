@@ -104,7 +104,8 @@ Component({
           data: {
             userInfo,
             content: talkContent,
-            blogId: this.properties.blogId
+            blogId: this.properties.blogId,
+            createTime: db.serverDate()
           }
         }).then(() => {
           wx.hideLoading()

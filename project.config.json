@@ -85,6 +85,13 @@
 					"pathName": "pages/blog-detail/blog-detail",
 					"query": "blogId=d4b812005e746fb7000a6b5f3826703b",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/profile/profile",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

@@ -1,1 +1,56 @@
 /* pages/profile/profile.wxss */
+page {
+  background-color: rgb(245, 245, 245);
+}
+
+.header {
+  background-image: linear-gradient(#1296db, #67b5df);
+  height: 480rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 178rpx;
+  height: 178rpx;
+  border-radius: 50%;
+  border: #fff 2px solid;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.nick {
+  font-size: larger;
+  font-weight: 600;
+  color: #fff;
+}
+
+.menu {
+  background-color: #fff;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25rpx 0;
+  margin: 0 25rpx;
+  font-size: medium;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+
+.item-befor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-befor i {
+  font-size: 48rpx;
+  margin-right: 25rpx;
+  color: #0187cf;
+}

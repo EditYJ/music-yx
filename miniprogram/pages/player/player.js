@@ -119,6 +119,9 @@ Page({
           backgroundAudioManager.src = url // 设置歌曲URL
           backgroundAudioManager.title = name // 设置歌曲名
           backgroundAudioManager.coverImgUrl = al.picUrl // 封面
+
+          // 保存历史纪录
+          this.savePlayHistory()
         }
         this.getLyric(musicId)
         wx.hideLoading()
@@ -200,6 +203,23 @@ Page({
   },
   musicOnEnded() {
     this.playNext()
+  },
+
+  savePlayHistory() {
+    const music = currectPlayList[currectPlayIndex]
+    const openId = app.globalData.openId
+    const storageList = wx.getStorageSync(openId)
+    let flag = false
+    for (let i = 0; i < storageList.length; i++) {
+      if (storageList[i].id == music.id) {
+        flag = true
+        break
+      }
+    }
+    if (!flag) {
+      storageList.unshift(music)
+      wx.setStorageSync(openId, storageList)
+    }
   },
 
 

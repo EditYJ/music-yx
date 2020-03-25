@@ -1,2 +1,36 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<view class="header">
+	<view class="avatar">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<open-data type="userNickName" class="nick"></open-data>
+</view>
+<view class="menu">
+	<navigator class="item" hover-class="none" url="/pages/profile-recplay/profile-recplay">
+		<view class="item-befor">
+			<i class="iconfont icon-lishishuju"></i>
+			<text>最近播放</text>
+		</view>
+		<view>
+			<i class="iconfont icon-gengduo"></i>
+		</view>
+	</navigator>
+	<navigator class="item" hover-class="none" url="/pages/profile-bloghistory/profile-bloghistory">
+		<view class="item-befor">
+			<i class="iconfont icon-iconfontzhizuobiaozhun023103"></i>
+			<text>我的发现</text>
+		</view>
+		<view>
+			<i class="iconfont icon-gengduo"></i>
+		</view>
+	</navigator>
+	<view class="item">
+		<view class="item-befor">
+			<i class="iconfont icon-saoma"></i>
+			<text>小程序码</text>
+		</view>
+		<view>
+			<i class="iconfont icon-gengduo"></i>
+		</view>
+	</view>
+</view>

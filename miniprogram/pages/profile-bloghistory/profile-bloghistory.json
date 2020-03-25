@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "y-blog-card": "/components/blogCard/blogCard"
+  },
+  "navigationBarTitleText": "我的发现"
 }

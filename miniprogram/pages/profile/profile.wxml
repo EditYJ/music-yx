@@ -24,7 +24,7 @@
 			<i class="iconfont icon-gengduo"></i>
 		</view>
 	</navigator>
-	<view class="item">
+	<view class="item" bindtap="getQrCode">
 		<view class="item-befor">
 			<i class="iconfont icon-saoma"></i>
 			<text>小程序码</text>

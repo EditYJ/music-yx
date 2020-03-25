@@ -1,2 +1,6 @@
 <!--pages/profile-bloghistory/profile-bloghistory.wxml-->
-<text>pages/profile-bloghistory/profile-bloghistory.wxml</text>
+<block wx:for="{{blogList}}" wx:key="_id">
+	<view class="blog-content">
+		<y-blog-card blog="{{item}}" bindtap="enterDetail" data-blog-id="{{item._id}}" />
+	</view>
+</block>

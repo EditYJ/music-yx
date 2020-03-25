@@ -9,7 +9,7 @@ exports.main = async (event, context) => {
   try {
     const result = await cloud.openapi.subscribeMessage.send({
       templateId: event.templateId,
-      miniprogramState: 'developer',
+      miniprogramState: 'trial',
       touser: wxContext.OPENID,
       page: `pages/blog-detail/blog-detail?blogId=${event.blogId}`,
       lang: 'zh_CN',
